@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<body>
+    @using validatingFormSubmission.Models
+    @model User
+
+    <div class = "container move">
+        <h3>Enter your information!</h3>
+        <div class='row'>
+            <div class ="col">
+                <form asp-action="Create" asp-controller="Home" method="post">
+                    <div class="form-group">
+                        <span class="red" asp-validation-for="First_Name"></span>
+                        <label asp-for="First_Name">First Name:</label>
+                        <input asp-for="First_Name" class="form-control" placeholder="First name must have at least 2 characters">
+                    </div>
+                    <div class="form-group">
+                        <span class="red" asp-validation-for="Last_Name"></span>
+                        <label asp-for="Last_Name">Last Name:</label>
+                        <input asp-for="Last_Name" class="form-control" placeholder="Last name must have at least 2 characters">
+                    </div>
+                    <div class="form-group">
+                        <span class="red" asp-validation-for="Age"></span>
+                        <label asp-for="Age">Age:</label>
+                        <input asp-for="Age" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <span class="red" asp-validation-for="Email"></span>
+                        <label asp-for="Email">Email:</label>
+                        <input asp-for="Email" class="form-control" placeholder="Must be valid email address">
+                    </div>
+                    <div class="form-group">
+                        <span class="red" asp-validation-for="Password"></span>
+                        <label asp-for="Password">Password:</label>
+                        <input asp-for="Password" class="form-control" placeholder="Enter password">
+                    </div>
+                    <input value="Add User" type="submit" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
